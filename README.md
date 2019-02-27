@@ -1,15 +1,16 @@
-# overview
-Overview Component
+# Full Stack Review Workshop
 
+cd to react-framework
 
-Directions:
+npm install express
 
-- cd into the react-framework-master folder
-- npm start
-- open another command line tab
-- cd into the react-framework-master folder
-- npm run react-dev
+npm start
 
-To Seed Database:
-- cd into the react-framework-master folder
-- npm run seed
+server should now be listening...
+
+create new terminal tab
+
+ cd back to react-framework
+
+ npm run react-dev
+

@@ -14,3 +14,10 @@ create new terminal tab
 
  npm run react-dev
 
+**CHANGES TO THIS THAT ALEX MADE**
+
+npm install
+
+mkdir jsonData
+
+...to be continued

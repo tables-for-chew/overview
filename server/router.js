@@ -10,8 +10,6 @@ router.put('/:id', controller.overview.put);
 
 router.delete('/:id', controller.overview.delete);
 
-// router.get('/products/:id', controller.products.get);
-
 
 module.exports = router;
 

@@ -22,6 +22,7 @@
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "fs": "0.0.1-security",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "webpack": "^4.29.5",

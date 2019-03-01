@@ -12,8 +12,8 @@ function createData() {
   for (var i = 1; i <= 100000; i++) {
     var closingTime = randomInt(8, 12)
     obj = {
-      id: i,
-      id_name: i.toString(),
+      id: index,
+      id_name: index.toString(),
       name: faker.lorem.word(),
       rating: Math.random()*(3.9-3.1+1)+3,
       ratings_num: Math.floor(Math.random()*(1000-100+1)+100),
@@ -41,6 +41,7 @@ function createData() {
       latitude: faker.address.latitude(),
       street_address: faker.address.streetAddress()
     };
+    index++;
     dataArray.push(obj);
   }
   return dataArray;
@@ -49,20 +50,13 @@ function createData() {
 function makeFile(index) {
   var stringArray = JSON.stringify(createData())
   console.log('ready to write!');
-  // fs.writeFile(`jsonData/file${index}.json`, stringArray, 'utf8', (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log('file written!');
-  //   }
-  // });
   fs.writeFileSync(`jsonData/file${index}.json`, stringArray)
   console.log('written!');
 }
 
+var index = 0;
 for (var j = 0; j <= 100; j++) {
-  var dataArray = [];
-  console.log('loopin!');
+  console.log('loopin!', j);
   makeFile(j);
 }
 

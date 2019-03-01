@@ -1,4 +1,4 @@
-var db = require('../dbs/db1.js');
+var db = require('../dbs/db2.js');
 
 module.exports = {
   get: () => {

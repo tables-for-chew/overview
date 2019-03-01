@@ -30,8 +30,10 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "basho-riak-client": "^2.4.0",
     "cors": "^2.8.5",
     "faker": "^4.1.0",
+    "hoek": "^6.1.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.14",
     "styled-components": "^4.1.3"

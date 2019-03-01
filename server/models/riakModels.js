@@ -3,20 +3,19 @@ var db = require('../dbs/riakdb.js');
 
 module.exports = {
   get: function(data) {
-    console.log('getting', data);
-      return new Promise((resolve, reject) => {
-        db.client.fetchValue(data, (err, result) => {
-          if (err) {
-            reject(err);
-          } else {
-            if (!result.isNotFound) {
-              result = result.values.shift();
-              result = result.value;
-            }
-            resolve(result);
+    return new Promise((resolve, reject) => {
+      db.client.fetchValue(data, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          if (!result.isNotFound) {
+            result = result.values.shift();
+            result = result.value;
           }
-        })
-      })
+          resolve(result);
+        }
+      });
+    });
   },
 
   post: function(data) {
@@ -27,8 +26,8 @@ module.exports = {
         } else {
           resolve(result);
         }
-      })
-    })
+      });
+    });
   },
 
   put: function(data) {
@@ -39,19 +38,19 @@ module.exports = {
         } else {
           resolve(result);
         }
-      })
-    })
+      });
+    });
   },
 
   delete: function(data) { 
     return new Promise((resolve, reject) => {
-      db.client.deleteValue(data, function (err, rslt) {
+      db.client.deleteValue(data, function (err, result) {
         if (err) {
           reject(err);
         } else {
-          resolve(rslt);
+          resolve(result);
         }
-      })
-    })
+      });
+    });
   }
 }

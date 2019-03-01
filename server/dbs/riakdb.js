@@ -11,6 +11,7 @@ var client = new Riak.Client(nodes)
 //   // NB: you may wish to check err
 //   process.exit();
 // });
+
 // console.log(client);
 
 module.exports = {

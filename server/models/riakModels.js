@@ -9,7 +9,11 @@ module.exports = {
           if (err) {
             reject(err);
           } else {
-            resolve(result.values);
+            if (!result.isNotFound) {
+              result = result.values.shift();
+              result = result.value;
+            }
+            resolve(result);
           }
         })
       })
@@ -24,29 +28,30 @@ module.exports = {
           resolve(result);
         }
       })
-      // db.client.ping((err, result) => {
-      //   if (err) {
-      //     reject(err);
-      //   } else {
-      //     resolve(result);
-      //   }
-      // })
     })
   },
 
-  put: function(data) { 
-      db.client.storeValue(data, function (err, rslt) {
-      if (err) {
-        console.log(err);
-      }
+  put: function(data) {
+    return new Promise((resolve, reject) => {
+      db.client.storeValue(data, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      })
     })
   },
 
   delete: function(data) { 
-    db.client.deleteValue(data, function (err, rslt) {
-      if (err) {
-        console.log(err);
-      }
+    return new Promise((resolve, reject) => {
+      db.client.deleteValue(data, function (err, rslt) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rslt);
+        }
+      })
     })
   }
 }

@@ -4,10 +4,10 @@ var models2 = require('../models/riakModels.js');
 module.exports = {
   overview: {
     get: function (req, res) {
-      models2.get({bucket: req.body.bucket, key: req.body.key, convertToJs: false})
+      models2.get({bucket: req.body.bucket, key: req.body.key, convertToJs: true})
       .then((data) => {
         console.log('hi', data);
-        res.json(data)
+        res.send(data)
       })
       .catch((error) => {
         console.log('error', error);
@@ -26,7 +26,7 @@ module.exports = {
       })
     },
     put: function (req, res) {
-      models2.put()
+      models2.put(req.body)
       .then((data) => {
         console.log('its updated!')
         res.json('update complete')
@@ -36,7 +36,7 @@ module.exports = {
       })
     },
     delete: function (req, res) {
-      models2.delete()
+      models2.delete({bucket: req.body.bucket, key: req.body.key})
       .then((data) => {
         console.log('its deleted!');
         res.json('its deleted!')

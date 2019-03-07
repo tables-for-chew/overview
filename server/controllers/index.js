@@ -6,7 +6,6 @@ module.exports = {
     get: function (req, res) {
       models2.get({bucket: req.body.bucket, key: req.body.key, convertToJs: true})
       .then((data) => {
-        console.log('hi', data);
         res.send(data)
       })
       .catch((error) => {
@@ -15,7 +14,6 @@ module.exports = {
       })
     },
     post: function (req, res) {
-      console.log('hi')
       models2.post(req.body)
       .then((data) => {
         console.log('its posted!', data);

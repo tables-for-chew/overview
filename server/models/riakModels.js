@@ -1,10 +1,9 @@
 var db = require('../dbs/riakdb.js');
-// var async = require('async');
 
 module.exports = {
   get: function(data) {
     return new Promise((resolve, reject) => {
-      db.client.fetchValue(data, (err, result) => {
+      db.fetchValue(data, (err, result) => {
         if (err) {
           reject(err);
         } else {
@@ -20,11 +19,13 @@ module.exports = {
 
   post: function(data) {
     return new Promise((resolve, reject) => {
-      db.client.storeValue(data, (err, result) => {
+      db.storeValue(data, (err, result) => {
         if (err) {
+          console.log('a boo boo', err);
           reject(err);
         } else {
-          resolve(result);
+          // console.log('no boo boos here', data.key)
+          resolve(data.key);
         }
       });
     });
@@ -32,7 +33,7 @@ module.exports = {
 
   put: function(data) {
     return new Promise((resolve, reject) => {
-      db.client.storeValue(data, (err, result) => {
+      db.storeValue(data, (err, result) => {
         if (err) {
           reject(err);
         } else {
@@ -44,7 +45,7 @@ module.exports = {
 
   delete: function(data) { 
     return new Promise((resolve, reject) => {
-      db.client.deleteValue(data, function (err, result) {
+      db.deleteValue(data, function (err, result) {
         if (err) {
           reject(err);
         } else {

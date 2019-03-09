@@ -21,10 +21,9 @@ module.exports = {
     return new Promise((resolve, reject) => {
       db.storeValue(data, (err, result) => {
         if (err) {
-          console.log('a boo boo', err);
+          console.log(err);
           reject(err);
         } else {
-          // console.log('no boo boos here', data.key)
           resolve(data.key);
         }
       });

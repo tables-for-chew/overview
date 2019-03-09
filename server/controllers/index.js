@@ -4,7 +4,7 @@ var models2 = require('../models/riakModels.js');
 module.exports = {
   overview: {
     get: function (req, res) {
-      models2.get({bucket: req.body.bucket, key: req.body.key, convertToJs: true})
+      models2.get({bucket: 'restaurants', key: req.params.id, convertToJs: true})
       .then((data) => {
         res.send(data)
       })
@@ -14,9 +14,9 @@ module.exports = {
       })
     },
     post: function (req, res) {
-      models2.post(req.body)
+      models2.post({bucket: 'restaurants', key: req.body.id.toString(), value: req.body})
       .then((data) => {
-        console.log('its posted!', data);
+        // console.log('its posted!', data);
         res.json('its posted!')
       })
       .catch((err) => {

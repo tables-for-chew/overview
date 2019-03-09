@@ -1,2 +1,4 @@
 node_modules
-jsonData
+jsonData/file*
+csvData/file*
+newrelic.js

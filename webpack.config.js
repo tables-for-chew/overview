@@ -1,25 +1,28 @@
-var path = require('path');
-var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
 
-
+const path = require('path');
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
+  entry: path.resolve(__dirname, './client/index.jsx'), // change me (points towards your index.jsx)
   output: {
     filename: 'bundle.js',
-    path: DIST_DIR
+    path: path.resolve(__dirname, './public'), // change me (points towards folder containing bundle.js)
   },
-  module : {
-    loaders : [
+  mode: 'development',
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
       {
-        test : /\.jsx?/,
-        include : SRC_DIR,
-        loader : 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-       }
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        },
       }
-    ]
+    ],
   },
-  //plugins: ["@babel/plugin-proposal-object-rest-spread"]
+  externals: {
+    'styled-components': true
+  }
 };

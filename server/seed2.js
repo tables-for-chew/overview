@@ -1,3 +1,4 @@
+//Generates CSV data for postgres
 var fs = require('fs');
 var faker = require('faker');
 

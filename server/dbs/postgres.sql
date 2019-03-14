@@ -1,4 +1,4 @@
-
+--this file was used to keep track of my postgres table creation
 CREATE TABLE restaurants (
   id int PRIMARY KEY,
   id_name VARCHAR(10),

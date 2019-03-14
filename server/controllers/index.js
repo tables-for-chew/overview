@@ -1,6 +1,4 @@
-// var models = require('../models/models1.js');
 var models2 = require('../models/riakModels.js');
-//This will be fixed later when the models are more fleshed out
 module.exports = {
   overview: {
     get: function (req, res) {

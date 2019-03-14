@@ -126,10 +126,13 @@ class App extends React.Component {
       contentType: 'application/json',
       success: (data) => {
         this.setState({
-          restaurant: data[0],
-          restaurantDescSplit: data[0].description.match(/.{78}/g)
+          restaurant: data,
+          restaurantDescSplit: data.description.match(/.{78}/g)
         });
       },
+      error: (err) => {
+        console.log('oh no i did a bad', err);
+      }
     });
   }
 

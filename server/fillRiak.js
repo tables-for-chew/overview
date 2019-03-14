@@ -19,9 +19,15 @@ async function makeFile(j) {
           value: data[i]
         }
         var p = models.post(obj)
+        // .then(() => {
+        //   console.log('yay');
+        // })
+        .catch((err) => {
+          console.log(err);
+        })
         all.push(p);
-        // console.log(i);
         if (i % 100 === 0) {
+          // console.log(i);
           await Promise.all(all);
           // console.log('hey good job', i);
           all = [];
@@ -56,7 +62,7 @@ async function emptyBucket() {
 
 (async () => {
   let date = new Date();
-  for (var k = 89; k <= 100; k++) {
+  for (var k = 0; k <= 100; k++) {
     await makeFile(k)
   }
   let date2 = new Date();

@@ -1,7 +1,11 @@
 var Riak = require('basho-riak-client')
 var assert = require('assert');
+var node1 = '54.172.131.160:8087';
+var node2 = '18.212.13.26:8087';
+var node3 = '3.85.79.99:8087';
+// var node4 = '52.91.241.190:8087';
 var nodes = [
-  'localhost:8087', 
+  node1, node2, node3
 ];
 
 var client = new Riak.Client(nodes, function (err, client) {
